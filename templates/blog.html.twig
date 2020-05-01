@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+{% block maincontent %}
+                <div class="wrapper-md">
+                    <div class="panel panel-default ">
+                        <div class="row wrapper">
+                            <div class="col-sm-12">
+                                <a href="{{ path('blog_new') }}" class="btn m-b-xs btn-sm btn-success btn-addon"><i
+                                            class="fa fa-plus"></i>Add post</a>
+                            </div>
+                        </div>
+                        <div class="row wrapper">
+                            <div class="col-sm-12">
+                                {% for message in app.flashes('success') %}
+                                    <div class="alert alert-success">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-striped b-t b-light">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Title</th>
+                                    <th>Image</th>
+                                    <th class="text-right">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody class="reorder_ul row-table-listing">
+                                {% for slide in blog %}
+                                    <tr id="image_li_{{ slide.id }}" class="divli ui-sortable-handle">
+                                        <a href="javascript:void(0);" style="float:none;" class="image_link lh100">
+                                            <td class="pt2p">{{ slide.id }}</td>
+                                            <td class="pt2p">{{ slide.translate.title }}</td>
+                                            <td>
+                                                <img src="{{ asset('uploads/pages/'~slide.imageName) | imagine_filter('my_thumb_horizontal') }}"/>
+                                            </td>
+                                            <td class="text-right pt2p">
+                                                <a href="{{ path('blog_edit', { 'id': slide.id }) }}" class="btn m-b-xs btn-sm btn-info btn-addon"><i class="fa fa-pencil"></i>Edit</a>
+                                                <a href="{{ path('blog_delete', { 'id': slide.id }) }}" class="btn m-b-xs btn-sm btn-success btn-addon" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash"></i>Delete</a>
+                                            </td>
+                                        </a>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- / main -->
+    <!-- /content -->
+{% endblock %}
+
+

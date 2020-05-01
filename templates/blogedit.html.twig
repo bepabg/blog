@@ -1,0 +1,40 @@
+{% extends "base.html.twig" %}
+{% block title %}Edit post{% endblock %}
+{% block maincontent %}
+    <div id="content" class="app-content" role="main">
+        <div class="app-content-body ">
+            <div class="hbox hbox-auto-xs hbox-auto-sm" ng-init="
+    app.settings.asideFolded = false;
+    app.settings.asideDock = false;
+  ">
+                <!-- main -->
+                <div class="wrapper-md">
+                    <div class="bg-light lter b-b wrapper-md">
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <h1 class="m-n font-thin h3 text-black">News</h1>
+                            </div>
+                            <div class="col-lg-6 text-right">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item active">Edit news {{ edit_form.vars.value.translate.title }}</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default ">
+                        <div class="panel-heading font-bold">
+                            Edit news {{ edit_form.vars.value.translate.title }}
+                        </div>
+                        {{ form_start(edit_form) }}
+                        {{ form_widget(edit_form) }}
+                        <div class="form-button-group">
+                            <button type="submit" class="btn m-b-xs btn-sm btn-success btn-addon"><i class="fa fa-save"></i>Save</button>
+                            <a href="{{ path('blog_list') }}" class="btn m-b-xs btn-sm btn-warning btn-addon m-l-md"><i class="fa fa-arrow-left"></i>Cancel</a>
+                        </div>
+                        {{ form_end(edit_form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

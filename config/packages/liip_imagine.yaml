@@ -1,0 +1,32 @@
+# See dos how to configure the bundle: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
+liip_imagine:
+    # valid drivers options include "gd" or "gmagick" or "imagick"
+    driver: "gd"
+    resolvers :
+        profile_photos:
+            web_path: ~
+#                web_root: "%kernel.project_dir%/../public"
+#                cache_prefix: "media/cache"
+    loaders:
+        default:
+            filesystem:
+#                    locator: filesystem_insecure
+                data_root: '%kernel.project_dir%/public/'
+
+    filter_sets :
+        cache : ~
+#        my_thumb_vertical:
+#            cache: profile_photos
+#            quality: 100
+#            filters:
+#                thumbnail  : { size : [90, 150], mode : outbound }
+        my_thumb_horizontal:
+            cache: profile_photos
+            quality: 100
+            filters:
+                thumbnail  : { size : [150, 90], mode : outbound }
+        service_thumbs:
+            cache: profile_photos
+            quality: 100
+            filters:
+                thumbnail  : { size : [300, 203], mode : outbound }

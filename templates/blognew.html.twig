@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+{% block title %}Добавяне на новина{% endblock %}
+{% block maincontent %}
+                <!-- main -->
+                <div class="wrapper-md">
+                    <div class="panel panel-default ">
+                        <div class="panel-heading font-bold">
+                            Add news
+                        </div>
+
+                        {{ form_start(new_form) }}
+                        {{ form_widget(new_form) }}
+
+                        <div class="form-button-group">
+                            <input type="submit" value="Save" class="btn btn-success" />
+                            <a href="{{ path('blog_list') }}" class="btn btn-info">Cancel</a>
+                        </div>
+                        {{ form_end(new_form) }}
+                    </div>
+                </div>
+{% endblock %}
+

@@ -1,0 +1,12 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+    form_themes:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+        - 'bootstrap_4_layout.html.twig'
+        - 'custom-forms.html.twig'
+services:
+    _defaults:
+        public: false
+        autowire: true
+        autoconfigure: true
+

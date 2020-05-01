@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('admin/jquery/bootstrap/dist/css/bootstrap.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('admin/js/tagsinput/bootstrap-tagsinput.css') }}"/>
+    </head>
+    <body>
+        {% block maincontent %}{% endblock %}
+
+
+        {% block javascripts %}
+            <script src="{{ asset('admin/jquery/jquery/dist/jquery.js') }}"></script>
+            <script src="{{ asset('admin/jquery/bootstrap/dist/js/bootstrap.js') }}"></script>
+            <script src="{{ asset('admin/js/tagsinput/bootstrap-tagsinput.min.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,3 @@
+beelab_tag:
+  tag_class: App\Entity\Tag
+  purge: false
